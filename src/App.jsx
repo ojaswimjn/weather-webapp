@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import SearchComp from './components/Result'
-import ResultComp from './components/Search'
+import ResultComp from './components/Result'
+import SearchComp from './components/Search'
 import WeatherBackground from './components/WeatherBackground'
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
         <div className='bg-transparent backdrop-filter backdrop-blur-md rounded-xl shadow-2xl p-8 max-w-md text-white w-full border border-white/30 relative z-10'>
           <h1 className='text-4xl font-extrabold text-center'> Weather </h1>
           <SearchComp setWeather={setWeather}/>
-          <ResultComp/>
+          {/* <ResultComp/> */}
         </div>
       </div>
       {/* <div className='flex'>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 
 import axios from "axios";
 
@@ -6,6 +6,12 @@ const searchComp = ({setWeather}) => {
   const [ city, setCity] = useState('')
   const [ result, setResult] = useState(null);
   const API_KEY= 'e5811a4e58a88a3c6c1422164cc93862'
+
+  useEffect(() => {
+    if(result){
+      console.log(result)
+    }
+  }, [result])
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -17,7 +23,6 @@ const searchComp = ({setWeather}) => {
     setResult(data);
     if (setWeather) setWeather (data);
 
-    console.log(data)
 
 
     }catch(err){
@@ -33,6 +38,22 @@ const searchComp = ({setWeather}) => {
               Get Weather
             </button>
       </form>
+      {result && result.main && (
+        <div className="mt-4 p-4 bg-white/20 rounded text-white">
+          <h2 className="text-xl font-bold">{result.name}, {result.sys.country}</h2>
+          <p> Temperature: {result.main.temp} °C</p>
+          <p>Feels like: {result.main.feels_like} °C</p>
+          <p>Condition: {result.weather[0].description}</p>
+          <p>Humidity: {result.main.humidity} °C</p>
+          <p>Wind: {result.wind.speed} °C</p>
+          <p>Visibility: {result.visibility} °C</p>
+          <p>Sunrise: {result.sys.sunrise} °C</p>
+          <p>Sunset: {result.sys.sunset} °C</p>
+
+
+
+        </div>
+      )}
 
       
 
