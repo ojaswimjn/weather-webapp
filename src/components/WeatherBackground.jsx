@@ -14,10 +14,10 @@ import CloudNight from '../assets/cloudynight.gif'
 
 const WeatherBackground = ({condition}) => {
   const gifs = {
-    Thunderstorm ,
-    Drizzler: DrizzleRain,
+    Thunderstorm: Thunderstorm ,
+    Drizzle: DrizzleRain,
     Rain: Rainfall,
-    Snow,
+    Snow: Snow,
     Clear: {day: ClearDay, night: ClearNight},
     Clouds: {day: CloudDay, night: CloudNight},
     Mist: Haze,
@@ -29,12 +29,12 @@ const WeatherBackground = ({condition}) => {
 
 
   const getBackground = () => {
-    if (!condition) return gifs.default;
+    if (!condition || !condition.main) return gifs.default;
     const weatherType = condition.main;
     const asset = gifs[weatherType];
 
     if(!asset) return gifs.default;
-    if (typeof async == 'object')
+    if (typeof asset === 'object')
       return condition.isDay? asset.day : asset.night;
 
     return asset;
@@ -47,14 +47,8 @@ const WeatherBackground = ({condition}) => {
 
   return (
     <div className='fixed inset-0 x-0 overflow-hidden'>
-      {background === Weather ? (
-        <img src={Weather} alt='weather-bg' className='w-full h-full object-cover opacity-100 pointer-events-auto animate-fade-in'>
-        </img>
-      ): (
         <img src={background} alt='weather-bg' className='w-full h-full object-cover opacity-100 pointer-events-auto animate-fade-in'>
         </img>
-      )
-      }
       <div className=' absolute inset-0 bg-black/30'></div>
       </div>
   )
