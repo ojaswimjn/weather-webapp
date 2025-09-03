@@ -47,7 +47,7 @@ const WeatherBackground = ({condition}) => {
 
   return (
     <div className='fixed inset-0 x-0 overflow-hidden'>
-      {background === video ? (
+      {background === Weather ? (
         <img src={Weather} alt='weather-bg' className='w-full h-full object-cover opacity-100 pointer-events-auto animate-fade-in'>
         </img>
       ): (
@@ -55,6 +55,7 @@ const WeatherBackground = ({condition}) => {
         </img>
       )
       }
+      <div className=' absolute inset-0 bg-black/30'></div>
       </div>
   )
 }
