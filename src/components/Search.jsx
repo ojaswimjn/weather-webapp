@@ -7,6 +7,7 @@ const searchComp = ({setWeather, setCondition}) => {
   const [ result, setResult] = useState(null);
   const [error, setError] = useState(null);
   const [unit, setUnit] = useState('celsius');
+
   const API_KEY= 'e5811a4e58a88a3c6c1422164cc93862'
 
   useEffect(() => {
@@ -68,7 +69,7 @@ const searchComp = ({setWeather, setCondition}) => {
         <input value={city} onChange={(e) => setCity(e.target.value)} placeholder='Enter city or country' type="text"
         className='mb-4 p-3 rounded border border-whitebg-transparent text-white placeholder-white focus:outline-none focus:borser-blue-300 transition duration-300' />
             <div className="flex gap-2">
-            <button type='submit' className=' flex-1 bg-purple-700 hover:bg-blue-700 text-white rounded-2xl'> 
+            <button type='submit' className=' flex-1 bg-purple-700 hover:bg-blue-700 text-white rounded-2xl px-4 py-2'> 
               Get Weather
             </button>
             {result && (

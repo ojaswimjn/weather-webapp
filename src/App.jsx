@@ -8,11 +8,11 @@ const App = () => {
 
   
   return (
-    <div className='min-h-screen'>
+    <div classNa  me='min-h-screen'>
       <WeatherBackground condition={condition}/>
       <div className='flex items-center justify-center p-6 min-h-screen'>
         <div className='bg-transparent backdrop-filter backdrop-blur-md rounded-xl shadow-2xl p-8 max-w-md text-white w-full border border-white/30 relative z-10'>
-          <h1 className='text-4xl font-extrabold text-center'> Weather </h1>
+          <h1 className='text-4xl font-extrabold text-center mb-3'> Weather </h1>
           <SearchComp setWeather={setWeather} setCondition={setCondition}/>
           {/* <ResultComp/> */}
         </div>
