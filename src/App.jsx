@@ -17,10 +17,6 @@ const App = () => {
           {/* <ResultComp/> */}
         </div>
       </div>
-      {/* <div className='flex'>
-        <div className='h-14 flex-auto'><SearchComp/></div>
-        <div className='h-32 flex-auto'><ResultComp/></div>
-    </div> */}
     </div>
     
   )
