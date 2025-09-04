@@ -1,6 +1,7 @@
 import React, {use, useEffect, useState} from 'react'
 import WeatherBackground from './WeatherBackground';
 import axios from "axios";
+import { fromUnixTime, addSeconds, format } from 'date-fns';
 
 const searchComp = ({setWeather, setCondition}) => {
   const [ city, setCity] = useState('')
@@ -58,11 +59,13 @@ const searchComp = ({setWeather, setCondition}) => {
     return temp;
   }
   const formatTime = (unix, timezone) => {
-    return new Date((unix + timezone) * 1000).toLocaleTimeString([], {
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  }
+    const date = new Date((unix + timezone) * 1000); 
+    const hours = date.getUTCHours().toString().padStart(2, '0');
+    const minutes = date.getUTCMinutes().toString().padStart(2, '0');
+    return `${hours}:${minutes}`;
+  };
+  
+
   return (
     <div className='w-full'>
       <form onSubmit={handleSearch} action="" className='flex flex-col relative'>
