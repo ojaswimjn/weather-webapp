@@ -9,7 +9,7 @@ const searchComp = ({setWeather, setCondition}) => {
   const [error, setError] = useState(null);
   const [unit, setUnit] = useState('celsius');
 
-  const API_KEY= 'e5811a4e58a88a3c6c1422164cc93862'
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     if(result){
